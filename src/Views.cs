@@ -29,7 +29,7 @@ namespace BalanceWatcher
         public static Window LoadWidget()
         {
             var window = Load<Window>("Widget");
-            using (var source = Assembly.GetExecutingAssembly().GetManifestResourceStream("shopkeeper.png"))
+            using (var source = Assembly.GetExecutingAssembly().GetManifestResourceStream("shopkeeper-ledger.png"))
             {
                 var mascot = BitmapFrame.Create(source, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
                 mascot.Freeze();
@@ -97,7 +97,7 @@ namespace BalanceWatcher
             var spine = window.Part<Border>("BookSpine");
             DockPanel.SetDock(spine, onLeft ? Dock.Right : Dock.Left);
             spine.CornerRadius = onLeft ? new CornerRadius(0, 7, 7, 0) : new CornerRadius(7, 0, 0, 7);
-            window.Part<Border>("Bubble").Margin = onLeft ? new Thickness(12, 0, 0, 0) : new Thickness(0, 0, 12, 0);
+            window.Part<Grid>("Bubble").Margin = onLeft ? new Thickness(12, 0, 0, 0) : new Thickness(0, 0, 12, 0);
             var tail = window.Part<System.Windows.Shapes.Path>("Tail");
             tail.HorizontalAlignment = onLeft ? HorizontalAlignment.Left : HorizontalAlignment.Right;
             tail.RenderTransform = new ScaleTransform(onLeft ? -1 : 1, 1);

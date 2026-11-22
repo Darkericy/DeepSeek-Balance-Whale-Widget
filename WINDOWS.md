@@ -1,6 +1,6 @@
 # 龙掌柜的账本 · Windows 桌面版
 
-适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.1/DragonLedger-Windows-x64.exe)
+适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.2/DragonLedger-Windows-x64.exe)
 
 ## 首次连接
 
@@ -28,4 +28,4 @@ DeepSeek 密钥由 Windows DPAPI 按当前用户加密，随设置保存在 `%LO
 
 本版将 MeteorNOX 挂件的气泡、贴边翻转与按压回弹移植到 WPF，并接入两个充值平台。[原项目](https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget)
 
-掌柜头像参考 ZipZipPipe 的 GPT 白龙娘立绘及小比例版本，保留分节白角、卷起的呆毛、淡紫眼和侧边结饰。上胸裁切、无嘴表情和淡紫粗描边参考 T7moris 公开的制作说明。桌面版用 ImageGen 重绘，DSH 用户也可在插件的自定义角色中导入透明图。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [半身头像生成说明](https://github.com/T7moris/GPT-Niang/blob/main/gpt-niang-usage/assets/%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E.md) · [素材来源与使用条件](PROVENANCE.md) · [掌柜角色 PNG](ui/shopkeeper.png)
+掌柜头像参考 ZipZipPipe 的 GPT 白龙娘立绘及小比例版本。半身比例、无嘴表情和淡紫粗描边参考 T7moris 公开的制作说明。Q 版账簿、袖口小手和算盘另行绘制，再与头像合成。DSH 用户可以在自定义角色中导入带道具的透明图。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [半身头像生成说明](https://github.com/T7moris/GPT-Niang/blob/main/gpt-niang-usage/assets/%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E.md) · [素材来源与使用条件](PROVENANCE.md) · [掌柜与账本 PNG](ui/shopkeeper-ledger.png)

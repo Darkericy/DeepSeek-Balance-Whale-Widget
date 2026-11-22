@@ -25,7 +25,7 @@ foreach ($name in @('WindowsBase', 'PresentationCore', 'PresentationFramework'))
     $flags += '/r:' + (Join-Path $framework ('WPF/' + $name + '.dll'))
 }
 foreach ($file in (Get-ChildItem -LiteralPath 'ui' -Filter '*.xaml')) { $flags += '/resource:' + $file.FullName + ',' + $file.Name }
-$flags += '/resource:ui/shopkeeper.png,shopkeeper.png'
+$flags += '/resource:ui/shopkeeper-ledger.png,shopkeeper-ledger.png'
 $flags += '/resource:LICENSE,Whale-Widget-LICENSE.txt'
 $flags += '/resource:PROVENANCE.md,Art-Credits.md'
 $flags += '/resource:' + $archive + ',qianwen.zip'
