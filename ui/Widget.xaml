@@ -4,10 +4,8 @@
   <DockPanel Margin="7,7,7,9">
     <Grid x:Name="MascotHit" DockPanel.Dock="Right" Width="144" Height="151" VerticalAlignment="Bottom"
           Margin="0,0,0,1" Cursor="Hand" ToolTip="点掌柜查余额，拖动可移动账本&#10;GPT 白龙娘形象参考 · ZipZipPipe" AutomationProperties.Name="GPT 龙娘掌柜">
-      <Grid x:Name="MascotFace" RenderTransformOrigin="0.5,0.5">
-        <Image x:Name="MascotImage" Stretch="Uniform" VerticalAlignment="Bottom" RenderOptions.BitmapScalingMode="HighQuality"
-               RenderTransformOrigin="0.5,0.92" AutomationProperties.Name="在柜台翻账簿、拨算盘的白龙掌柜"/>
-      </Grid>
+      <Image x:Name="MascotImage" Stretch="Uniform" VerticalAlignment="Bottom" RenderOptions.BitmapScalingMode="HighQuality"
+             RenderTransformOrigin="0.5,0.92" AutomationProperties.Name="白发淡紫眼、戴结形发饰的龙娘掌柜"/>
     </Grid>
     <Grid>
       <Grid.Effect><DropShadowEffect Color="#4A3233" BlurRadius="7" ShadowDepth="2" Opacity="0.25"/></Grid.Effect>
@@ -41,7 +39,15 @@
               <TextBlock x:Name="Cadence" FontSize="10.5" Foreground="{StaticResource Muted}" VerticalAlignment="Center"/>
               <Button x:Name="Details" Grid.Column="1" Style="{StaticResource TextAction}" AutomationProperties.Name="切换余额明细" Content="明细"/>
               <Button x:Name="Refresh" Grid.Column="2" Style="{StaticResource TextAction}" AutomationProperties.Name="立即刷新" ToolTip="立即刷新两个账户">
-                <StackPanel Orientation="Horizontal"><Path Data="{StaticResource Rotate}" Style="{StaticResource Glyph}" Width="12" Height="12" Stroke="{StaticResource Accent}"/>
+                <StackPanel Orientation="Horizontal">
+                  <Viewbox Width="16" Height="13" VerticalAlignment="Center">
+                    <Canvas Width="22" Height="18">
+                      <Rectangle Canvas.Left="1" Canvas.Top="1" Width="20" Height="16" RadiusX="2" RadiusY="2" Stroke="{StaticResource Accent}" StrokeThickness="1.6"/>
+                      <Path Data="M6,2 V16 M11,2 V16 M16,2 V16 M2,8 H20" Stroke="#BB9781" StrokeThickness="1"/>
+                      <Path Data="M4.5,5 H7.5 M9.5,4 H12.5 M14.5,5 H17.5 M4.5,11 H7.5 M9.5,13 H12.5 M14.5,11 H17.5"
+                            Stroke="{StaticResource Accent}" StrokeThickness="2" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Canvas>
+                  </Viewbox>
                   <TextBlock Text="刷新" Margin="4,0,0,0"/></StackPanel>
               </Button>
             </Grid>

@@ -40,4 +40,4 @@
 
 GPT 白龙娘形象参考 ZipZipPipe。原作者在画集说明中要求标注作者、不可商用，使用本版掌柜的同人形象时也请保留署名并限非商业用途。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [ZipZipPipe 原画集与取用说明](https://www.pixiv.net/artworks/148186519)
 
-掌柜装、柜台、翻账和拨算盘的立绘由 ImageGen 为本桌面版重新绘制。`ui/shopkeeper.png` 是角色透明图，`ui/shopkeeper.ico` 取自其头像。`ui/windows-preview.png` 由应用使用示例余额渲染。
+Windows v1.2.1 的头像由 ImageGen 对照 ZipZipPipe 原画集第四幅和作者的小比例龙娘重绘。头部朝向参照 DSH 挂件，半垂眼、无嘴表情和上胸裁切参考 T7moris 的制作说明。`ui/shopkeeper.png` 是本版角色透明图，`ui/shopkeeper.ico` 取自其头像。`ui/windows-preview.png` 由应用使用示例余额渲染。[作者的小比例版本](https://www.bilibili.com/video/BV1tE9XBbErS/?t=23) · [T7moris 的头像制作说明](https://github.com/T7moris/GPT-Niang/blob/main/gpt-niang-usage/assets/%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E.md)

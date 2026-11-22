@@ -101,7 +101,6 @@ namespace BalanceWatcher
             var tail = window.Part<System.Windows.Shapes.Path>("Tail");
             tail.HorizontalAlignment = onLeft ? HorizontalAlignment.Left : HorizontalAlignment.Right;
             tail.RenderTransform = new ScaleTransform(onLeft ? -1 : 1, 1);
-            window.Part<Grid>("MascotFace").RenderTransform = new ScaleTransform(onLeft ? -1 : 1, 1);
         }
     }
 

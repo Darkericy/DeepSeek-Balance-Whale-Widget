@@ -171,6 +171,9 @@ namespace BalanceWatcher
             var prefs = new Preferences();
             Check(view.Part<Image>("MascotImage").Source is BitmapSource, "standalone mascot loads from the executable");
             Ui.FaceInward(view, true);
+            var portraitToBoard = view.Part<Image>("MascotImage").TransformToAncestor((Visual)view.Content);
+            Check(portraitToBoard.Transform(new Point(1, 0)).X > portraitToBoard.Transform(new Point(0, 0)).X,
+                "left docking preserves the side of the dragon's knot ornament");
             Check(DockPanel.GetDock(view.Part<Grid>("MascotHit")) == Dock.Left &&
                 DockPanel.GetDock(view.Part<Border>("BookSpine")) == Dock.Right &&
                 view.Part<System.Windows.Shapes.Path>("Tail").HorizontalAlignment == HorizontalAlignment.Left, "bubble and mascot follow left docking");

@@ -1,6 +1,6 @@
 # 龙掌柜的账本 · Windows 桌面版
 
-适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.0/DragonLedger-Windows-x64.exe)
+适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.1/DragonLedger-Windows-x64.exe)
 
 ## 首次连接
 
@@ -12,7 +12,7 @@
 ## 桌面使用
 
 - 账本分行显示两个账户。点掌柜或 **刷新** 可立即查询，点 **明细** 可查看 DeepSeek 各币种的充值余额、赠金及两个账户各自的更新时间。千问显示账单账户的可用额度。查询失败时，账本会显示原因和上次成功时间。
-- 拖动掌柜或标题可以移动挂件。松手时，靠近屏幕边缘会自动贴边，掌柜与账页会转向屏幕内侧。看板记住窗口位置，默认置顶，点图钉可切换。
+- 拖动掌柜或标题可以移动挂件。靠近屏幕边缘松手即可贴边，账页排在掌柜靠近屏幕中央的一侧。看板记住窗口位置，默认置顶，点图钉可切换。
 - 点击右上角的减号收起到托盘。单击托盘图标可恢复窗口，右键菜单提供刷新、设置和退出。看板收起后继续监控。
 - 打开齿轮 **设置 → 桌面与提醒**，勾选 **登录 Windows 时打开看板** 并保存即可为当前用户配置自启。刷新间隔可选 1、3、5 或 15 分钟，默认每分钟一次。人民币和美元提醒线默认为 ¥10 和 $2，可分别修改或关闭。
 
@@ -28,4 +28,4 @@ DeepSeek 密钥由 Windows DPAPI 按当前用户加密，随设置保存在 `%LO
 
 本版将 MeteorNOX 挂件的气泡、贴边翻转与按压回弹移植到 WPF，并接入两个充值平台。[原项目](https://github.com/MeteorNOX/DeepSeek-Balance-Whale-Widget)
 
-掌柜的银发、龙角、龙翼和鳞尾参考 ZipZipPipe 的 GPT 白龙娘。酒红色掌柜装、柜台、账簿与算盘由 ImageGen 为本版绘制。DSH 用户也可以在插件的自定义角色中导入这张透明图。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [素材来源与使用条件](PROVENANCE.md) · [掌柜角色 PNG](ui/shopkeeper.png)
+掌柜头像参考 ZipZipPipe 的 GPT 白龙娘立绘及小比例版本，保留分节白角、卷起的呆毛、淡紫眼和侧边结饰。上胸裁切、无嘴表情和淡紫粗描边参考 T7moris 公开的制作说明。桌面版用 ImageGen 重绘，DSH 用户也可在插件的自定义角色中导入透明图。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [半身头像生成说明](https://github.com/T7moris/GPT-Niang/blob/main/gpt-niang-usage/assets/%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E.md) · [素材来源与使用条件](PROVENANCE.md) · [掌柜角色 PNG](ui/shopkeeper.png)

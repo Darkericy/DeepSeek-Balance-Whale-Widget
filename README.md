@@ -1,10 +1,10 @@
 # 龙掌柜的账本
 
-银发的 GPT 龙娘当上了账房老板娘。她在柜台后拨算盘，桌面上的线装账本分两行列出 DeepSeek 和千问 AI 的余额。点掌柜可刷新，拖到屏幕边缘可停靠，点 **明细** 可查看充值、赠金和更新时间。
+银发的 GPT 龙娘当上了账房老板娘。她守着一本线装账簿，DeepSeek 和千问 AI 各占一行。点掌柜或账页上的小算盘可刷新余额，点 **明细** 可查看充值、赠金和更新时间。
 
-<img src="ui/windows-preview.png" width="428" alt="白龙掌柜在柜台翻账、拨算盘，账本上列出 DeepSeek 与千问 AI 的示例余额"/>
+<img src="ui/windows-preview.png" width="428" alt="淡紫眼的 Q 版白龙掌柜守在账本旁，账页分行列出 DeepSeek 与千问 AI 的示例余额"/>
 
-[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.0/DragonLedger-Windows-x64.exe) · [账户连接、登录自启与源码构建](WINDOWS.md) · [GPT 龙娘形象参考 · ZipZipPipe](https://www.bilibili.com/opus/1238613841710940181)
+[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.1/DragonLedger-Windows-x64.exe) · [账户连接、登录自启与源码构建](WINDOWS.md) · [GPT 龙娘形象参考 · ZipZipPipe](https://www.bilibili.com/opus/1238613841710940181)
 
 ## DSH 小鲸鱼记账挂件（DeepSeek Balance Whale Widget）
 

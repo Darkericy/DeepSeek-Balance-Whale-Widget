@@ -7,7 +7,7 @@ using System.Windows;
 [assembly: AssemblyTitle("余额看板")]
 [assembly: AssemblyDescription("龙掌柜的账本 · DeepSeek 与千问 AI 桌面余额挂件")]
 [assembly: AssemblyProduct("余额看板")]
-[assembly: AssemblyVersion("1.2.0.0")]
+[assembly: AssemblyVersion("1.2.1.0")]
 
 namespace BalanceWatcher
 {
