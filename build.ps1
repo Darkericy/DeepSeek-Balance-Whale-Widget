@@ -17,7 +17,7 @@ if (-not (Test-Path -LiteralPath $archive)) {
 if ((Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash -ne $expected) { throw 'Invalid cached Qianwen archive checksum.' }
 $framework = Join-Path $env:WINDIR 'Microsoft.NET/Framework64/v4.0.30319'
 $compiler = Join-Path $framework 'csc.exe'
-$flags = @('/nologo', '/optimize+', '/warn:4', '/langversion:5', '/platform:x64', '/codepage:65001', '/win32icon:ui/tide.ico', '/win32manifest:src/app.manifest')
+$flags = @('/nologo', '/optimize+', '/warn:4', '/langversion:5', '/platform:x64', '/codepage:65001', '/win32icon:ui/shopkeeper.ico', '/win32manifest:src/app.manifest')
 foreach ($name in @('System', 'System.Core', 'System.Xaml', 'System.Net.Http', 'System.Web.Extensions', 'System.Security', 'System.Drawing', 'System.Windows.Forms', 'System.IO.Compression', 'System.Xml')) {
     $flags += '/r:' + (Join-Path $framework ($name + '.dll'))
 }
@@ -25,8 +25,9 @@ foreach ($name in @('WindowsBase', 'PresentationCore', 'PresentationFramework'))
     $flags += '/r:' + (Join-Path $framework ('WPF/' + $name + '.dll'))
 }
 foreach ($file in (Get-ChildItem -LiteralPath 'ui' -Filter '*.xaml')) { $flags += '/resource:' + $file.FullName + ',' + $file.Name }
-$flags += '/resource:ui/tide.png,tide.png'
+$flags += '/resource:ui/shopkeeper.png,shopkeeper.png'
 $flags += '/resource:LICENSE,Whale-Widget-LICENSE.txt'
+$flags += '/resource:PROVENANCE.md,Art-Credits.md'
 $flags += '/resource:' + $archive + ',qianwen.zip'
 $flags += '/resource:third_party/qianwen-cli-LICENSE.txt,qianwen-LICENSE.txt'
 $sources = @(Get-ChildItem -LiteralPath 'src' -Filter '*.cs' | ForEach-Object FullName)

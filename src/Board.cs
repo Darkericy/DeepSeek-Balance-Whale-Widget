@@ -136,7 +136,7 @@ namespace BalanceWatcher
         {
             tray.Icon = System.Drawing.Icon.ExtractAssociatedIcon(System.Reflection.Assembly.GetExecutingAssembly().Location);
             var menu = new Forms.ContextMenuStrip();
-            menu.Items.Add("显示余额看板", null, (s, e) => Show());
+            menu.Items.Add("打开龙掌柜的账本", null, (s, e) => Show());
             menu.Items.Add("立即刷新", null, async (s, e) => await Refresh(true));
             menu.Items.Add("账户与设置", null, (s, e) => Settings(false));
             menu.Items.Add(new Forms.ToolStripSeparator());
@@ -144,7 +144,7 @@ namespace BalanceWatcher
             tray.ContextMenuStrip = menu;
             tray.MouseClick += (s, e) => { if (e.Button == Forms.MouseButtons.Left) Show(); };
             tray.BalloonTipClicked += (s, e) => Show();
-            tray.Text = "余额看板";
+            tray.Text = Window.Title;
             tray.Visible = true;
         }
 
@@ -200,7 +200,7 @@ namespace BalanceWatcher
             Window.Topmost = Store.Value.Pinned;
             var pin = Window.Part<Button>("PinButton");
             pin.ToolTip = Store.Value.Pinned ? "已置顶，点击取消" : "置顶看板";
-            pin.Background = Ui.Color(Store.Value.Pinned ? "#EAE5F9" : "Transparent");
+            pin.Background = Store.Value.Pinned ? (Brush)Window.FindResource("PinnedFill") : Brushes.Transparent;
             timer.Interval = TimeSpan.FromMinutes(Store.Value.Minutes);
             Paint();
         }

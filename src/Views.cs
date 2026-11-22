@@ -29,7 +29,7 @@ namespace BalanceWatcher
         public static Window LoadWidget()
         {
             var window = Load<Window>("Widget");
-            using (var source = Assembly.GetExecutingAssembly().GetManifestResourceStream("tide.png"))
+            using (var source = Assembly.GetExecutingAssembly().GetManifestResourceStream("shopkeeper.png"))
             {
                 var mascot = BitmapFrame.Create(source, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
                 mascot.Freeze();
@@ -94,6 +94,9 @@ namespace BalanceWatcher
         public static void FaceInward(Window window, bool onLeft)
         {
             DockPanel.SetDock(window.Part<Grid>("MascotHit"), onLeft ? Dock.Left : Dock.Right);
+            var spine = window.Part<Border>("BookSpine");
+            DockPanel.SetDock(spine, onLeft ? Dock.Right : Dock.Left);
+            spine.CornerRadius = onLeft ? new CornerRadius(0, 7, 7, 0) : new CornerRadius(7, 0, 0, 7);
             window.Part<Border>("Bubble").Margin = onLeft ? new Thickness(12, 0, 0, 0) : new Thickness(0, 0, 12, 0);
             var tail = window.Part<System.Windows.Shapes.Path>("Tail");
             tail.HorizontalAlignment = onLeft ? HorizontalAlignment.Left : HorizontalAlignment.Right;
@@ -138,7 +141,7 @@ namespace BalanceWatcher
             {
                 string value = item.Format(item.Total);
                 var figure = new TextBlock { Text = value, FontFamily = new FontFamily("Segoe UI"), FontSize = 22,
-                    FontWeight = FontWeights.SemiBold, Foreground = Ui.Color(stale ? "#777280" : "#312D50") };
+                    FontWeight = FontWeights.SemiBold, Foreground = Ui.Color(stale ? "#776E6A" : "#392C33") };
                 Typography.SetNumeralAlignment(figure, FontNumeralAlignment.Tabular);
                 amounts.Children.Add(new Viewbox { Child = figure, StretchDirection = StretchDirection.DownOnly,
                     HorizontalAlignment = HorizontalAlignment.Right, ToolTip = item.Currency + "  " + value });

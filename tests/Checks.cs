@@ -172,9 +172,11 @@ namespace BalanceWatcher
             Check(view.Part<Image>("MascotImage").Source is BitmapSource, "standalone mascot loads from the executable");
             Ui.FaceInward(view, true);
             Check(DockPanel.GetDock(view.Part<Grid>("MascotHit")) == Dock.Left &&
+                DockPanel.GetDock(view.Part<Border>("BookSpine")) == Dock.Right &&
                 view.Part<System.Windows.Shapes.Path>("Tail").HorizontalAlignment == HorizontalAlignment.Left, "bubble and mascot follow left docking");
             Ui.FaceInward(view, false);
             Check(DockPanel.GetDock(view.Part<Grid>("MascotHit")) == Dock.Right &&
+                DockPanel.GetDock(view.Part<Border>("BookSpine")) == Dock.Left &&
                 view.Part<System.Windows.Shapes.Path>("Tail").HorizontalAlignment == HorizontalAlignment.Right, "right docking restores the bubble layout");
             card.Render(prefs); qcard.Render(prefs);
             view.Part<TextBlock>("Cadence").Text = "每 1 分钟刷新";
@@ -200,7 +202,7 @@ namespace BalanceWatcher
             deep.Error = null;
             deep.Last = BalanceJson.DeepSeek("{\"is_available\":true,\"balance_infos\":[{\"currency\":\"CNY\",\"total_balance\":\"128.46\",\"topped_up_balance\":\"120\",\"granted_balance\":\"8.46\"}]}");
             card.Render(prefs); qcard.Render(prefs);
-            view.Part<Button>("PinButton").Background = Ui.Color("#EAE5F9");
+            view.Part<Button>("PinButton").Background = (Brush)app.FindResource("PinnedFill");
             Render(content, view.Width, "widget-example.png", 2);
             var opts = Ui.Load<Window>("Settings");
             Check(opts.Part<PasswordBox>("ApiKey") != null && Ui.Load<Window>("Login").Part<Button>("Reopen") != null, "settings and authorization dialogs load");

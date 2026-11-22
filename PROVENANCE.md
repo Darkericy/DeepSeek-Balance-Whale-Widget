@@ -35,3 +35,9 @@
 ## 四、权利主张 / Takedown
 
 如果你认为 `assets/` 中有素材侵犯了你的权利，请在本仓库开一条 issue，说明**文件名**与**依据**，我们会在核实后**立即替换或移除**，不附加其它条件。我们也欢迎直接提供可自由再分发的替代素材。
+
+## 五、Windows 桌面版「龙掌柜的账本」
+
+GPT 白龙娘形象参考 ZipZipPipe。原作者在画集说明中要求标注作者、不可商用，使用本版掌柜的同人形象时也请保留署名并限非商业用途。[作者三视图](https://www.bilibili.com/opus/1238613841710940181) · [ZipZipPipe 原画集与取用说明](https://www.pixiv.net/artworks/148186519)
+
+掌柜装、柜台、翻账和拨算盘的立绘由 ImageGen 为本桌面版重新绘制。`ui/shopkeeper.png` 是角色透明图，`ui/shopkeeper.ico` 取自其头像。`ui/windows-preview.png` 由应用使用示例余额渲染。

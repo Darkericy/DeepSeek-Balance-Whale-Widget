@@ -1,46 +1,52 @@
 <Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="小鲸鱼余额看板" Width="402" SizeToContent="Height" WindowStyle="None" ResizeMode="NoResize"
+        Title="龙掌柜的账本" Width="428" SizeToContent="Height" WindowStyle="None" ResizeMode="NoResize"
         AllowsTransparency="True" Background="Transparent" UseLayoutRounding="True" FontFamily="{StaticResource UiFont}">
   <DockPanel Margin="7,7,7,9">
-    <Grid x:Name="MascotHit" DockPanel.Dock="Right" Width="118" Height="137" VerticalAlignment="Bottom"
-          Margin="0,0,0,2" Cursor="Hand" ToolTip="点鲸鱼刷新余额，拖动可移动挂件" AutomationProperties.Name="小鲸鱼">
+    <Grid x:Name="MascotHit" DockPanel.Dock="Right" Width="144" Height="151" VerticalAlignment="Bottom"
+          Margin="0,0,0,1" Cursor="Hand" ToolTip="点掌柜查余额，拖动可移动账本&#10;GPT 白龙娘形象参考 · ZipZipPipe" AutomationProperties.Name="GPT 龙娘掌柜">
       <Grid x:Name="MascotFace" RenderTransformOrigin="0.5,0.5">
         <Image x:Name="MascotImage" Stretch="Uniform" VerticalAlignment="Bottom" RenderOptions.BitmapScalingMode="HighQuality"
-               RenderTransformOrigin="0.5,0.92" AutomationProperties.Name="抱着账本的小鲸鱼"/>
+               RenderTransformOrigin="0.5,0.92" AutomationProperties.Name="在柜台翻账簿、拨算盘的白龙掌柜"/>
       </Grid>
     </Grid>
     <Grid>
-      <Grid.Effect><DropShadowEffect Color="#38325C" BlurRadius="7" ShadowDepth="2" Opacity="0.25"/></Grid.Effect>
+      <Grid.Effect><DropShadowEffect Color="#4A3233" BlurRadius="7" ShadowDepth="2" Opacity="0.25"/></Grid.Effect>
       <Border x:Name="Bubble" Margin="0,0,12,0" Background="{StaticResource BubblePaper}"
-              BorderBrush="{StaticResource BubbleLine}" BorderThickness="1" CornerRadius="17" Padding="13,8,13,7">
-        <StackPanel>
-          <Grid Margin="0,0,0,4">
-            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-            <StackPanel x:Name="DragZone" Orientation="Horizontal" Background="Transparent" Cursor="SizeAll" ToolTip="拖动以移动挂件">
-              <Viewbox Width="21" Height="21" Margin="0,0,7,0"><Canvas Width="24" Height="24">
-                <Rectangle Canvas.Left="2" Canvas.Top="2.5" Width="19" Height="19" RadiusX="5" RadiusY="5" Fill="#EAE6FF"/>
-                <Path Data="M6,7 Q9,6 12,8 Q15,6 19,7 L19,15 Q15,14 12,16 Q9,14 6,15 Z M12,8 L12,16"
-                      Fill="#FDFCFF" Stroke="#665899" StrokeThickness="1.35" StrokeLineJoin="Round"/>
-              </Canvas></Viewbox>
-              <TextBlock Text="鲸鱼账本" FontSize="15" FontWeight="SemiBold" VerticalAlignment="Center" Foreground="#393456"/>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
-              <Button x:Name="PinButton" Style="{StaticResource IconButton}" AutomationProperties.Name="切换置顶"><Path Data="{StaticResource Pin}" Style="{StaticResource Glyph}"/></Button>
-              <Button x:Name="Options" Style="{StaticResource IconButton}" ToolTip="账户与设置" AutomationProperties.Name="设置"><Path Data="{StaticResource Gear}" Style="{StaticResource Glyph}"/></Button>
-              <Button x:Name="ToTray" Style="{StaticResource IconButton}" ToolTip="收起到系统托盘" AutomationProperties.Name="收起到托盘"><Path Data="M2,8 L13,8" Stroke="{StaticResource Ink}" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/></Button>
-            </StackPanel>
-          </Grid>
-          <StackPanel x:Name="Accounts"/>
-          <Grid Margin="1,3,0,0">
-            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-            <TextBlock x:Name="Cadence" FontSize="10.5" Foreground="{StaticResource Muted}" VerticalAlignment="Center"/>
-            <Button x:Name="Details" Grid.Column="1" Style="{StaticResource TextAction}" AutomationProperties.Name="切换余额明细" Content="明细"/>
-            <Button x:Name="Refresh" Grid.Column="2" Style="{StaticResource TextAction}" AutomationProperties.Name="立即刷新" ToolTip="立即刷新两个账户">
-              <StackPanel Orientation="Horizontal"><Path Data="{StaticResource Rotate}" Style="{StaticResource Glyph}" Width="12" Height="12" Stroke="{StaticResource Accent}"/>
-                <TextBlock Text="刷新" Margin="4,0,0,0"/></StackPanel>
-            </Button>
-          </Grid>
-        </StackPanel>
+              BorderBrush="{StaticResource BubbleLine}" BorderThickness="1" CornerRadius="8">
+        <DockPanel>
+          <Border x:Name="BookSpine" Width="8" DockPanel.Dock="Left" Background="#80444A" CornerRadius="7,0,0,7" IsHitTestVisible="False">
+            <UniformGrid Columns="1" Rows="3" Margin="0,10,0,10">
+              <Path Style="{StaticResource BookStitch}"/>
+              <Path Style="{StaticResource BookStitch}"/>
+              <Path Style="{StaticResource BookStitch}"/>
+            </UniformGrid>
+          </Border>
+          <StackPanel Margin="11,8,11,7">
+            <Grid Margin="0,0,0,4">
+              <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+              <Border x:Name="DragZone" Background="Transparent" Cursor="SizeAll" ToolTip="拖动以移动账本">
+                <TextBlock Text="龙掌柜的账本" FontFamily="STZhongsong, SimSun, Microsoft YaHei UI" FontSize="17" FontWeight="Bold"
+                           VerticalAlignment="Center" Foreground="#64353A"/>
+              </Border>
+              <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="PinButton" Style="{StaticResource IconButton}" AutomationProperties.Name="切换置顶"><Path Data="{StaticResource Pin}" Style="{StaticResource Glyph}"/></Button>
+                <Button x:Name="Options" Style="{StaticResource IconButton}" ToolTip="账户与设置" AutomationProperties.Name="设置"><Path Data="{StaticResource Gear}" Style="{StaticResource Glyph}"/></Button>
+                <Button x:Name="ToTray" Style="{StaticResource IconButton}" ToolTip="收起到系统托盘" AutomationProperties.Name="收起到托盘"><Path Data="M2,8 L13,8" Stroke="{StaticResource Ink}" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/></Button>
+              </StackPanel>
+            </Grid>
+            <Border Height="1" Background="{StaticResource Line}"/>
+            <StackPanel x:Name="Accounts"/>
+            <Grid Margin="1,3,0,0">
+              <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+              <TextBlock x:Name="Cadence" FontSize="10.5" Foreground="{StaticResource Muted}" VerticalAlignment="Center"/>
+              <Button x:Name="Details" Grid.Column="1" Style="{StaticResource TextAction}" AutomationProperties.Name="切换余额明细" Content="明细"/>
+              <Button x:Name="Refresh" Grid.Column="2" Style="{StaticResource TextAction}" AutomationProperties.Name="立即刷新" ToolTip="立即刷新两个账户">
+                <StackPanel Orientation="Horizontal"><Path Data="{StaticResource Rotate}" Style="{StaticResource Glyph}" Width="12" Height="12" Stroke="{StaticResource Accent}"/>
+                  <TextBlock Text="刷新" Margin="4,0,0,0"/></StackPanel>
+              </Button>
+            </Grid>
+          </StackPanel>
+        </DockPanel>
       </Border>
       <Path x:Name="Tail" Data="M0,0 C3,5 7,9 14,10 C11,15 5,17 0,16" Fill="{StaticResource BubblePaper}" Stroke="{StaticResource BubbleLine}"
             StrokeThickness="1" StrokeLineJoin="Round" Stretch="None" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,48"
