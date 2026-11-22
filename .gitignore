@@ -27,3 +27,8 @@ node_modules/
 *.bak2
 *.bak-devpaths
 _patch_*.patch
+
+# Windows desktop build and local settings
+.build/
+/余额看板.exe
+/settings.json

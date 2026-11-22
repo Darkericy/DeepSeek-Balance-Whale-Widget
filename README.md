@@ -1,4 +1,12 @@
-# DSH 小鲸鱼记账挂件（DeepSeek Balance Whale Widget）
+# 小鲸鱼余额挂件
+
+Windows 桌面上的小鲸鱼会在气泡里显示 DeepSeek 和千问 AI 的账户余额。点它可以刷新，拖到屏幕边缘可以贴边停靠，点 **明细** 可查看充值、赠金及最近一次成功更新的时间。
+
+<img src="ui/windows-preview.png" width="402" alt="Windows 桌面挂件使用示例金额展示 DeepSeek 与千问 AI 的余额"/>
+
+[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.1.0/WhaleBalance-Windows-x64.exe) · [账户连接、登录自启与源码构建](WINDOWS.md)
+
+## DSH 小鲸鱼记账挂件（DeepSeek Balance Whale Widget）
 
 ![DSH 小鲸鱼记账挂件](assets/DSH2.png)
 
