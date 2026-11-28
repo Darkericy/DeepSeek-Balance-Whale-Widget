@@ -1,6 +1,6 @@
 # 龙掌柜的账本 · Windows 桌面版
 
-适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.2/DragonLedger-Windows-x64.exe)
+适用于 Windows 10 / 11 x64，需 .NET Framework 4.8。将下载的程序放在固定目录，双击即可在桌面打开龙掌柜的账房。千问官方组件随程序提供。[下载 Windows x64 桌面版 v1.2.2](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.2/DragonLedger-Windows-x64.exe)
 
 ## 首次连接
 
@@ -8,6 +8,12 @@
 2. 在千问 AI 卡片点 **网页登录**，在浏览器中用充值的账号完成授权。看板会复用有效的官方 CLI 登录。千问将 `sk-`、`sk-ws-` 和 `sk-sp-` 模型 Key 用于模型服务，查询充值账户余额需使用管理登录。[千问 CLI 的登录与余额查询](https://platform.qianwenai.com/docs/api-reference/preparation/cli) · [千问可用额度说明](https://platform.qianwenai.com/docs/resources/billing-overview)
 
 如果关闭或更换本机代理后出现千问连接错误，可以在 **设置 → 账户连接** 中勾选 **直连千问** 并保存。看板随后会使用现有登录立即刷新。此选项只作用于千问组件的授权和查询请求。
+
+## 按 API Key 查看用量
+
+从 v1.3.0 起，点击 DeepSeek 卡片上的 **Key 用量**，在账本窗口内登录 DeepSeek 开放平台。在 **时间维度** 中选择统计范围，再从 **API Key** 菜单选择要查看的密钥。点击窗口上方的 **刷新用量** 可重新读取官方页面。余额卡片显示设置中 API Key 所属账户的余额，用量页显示当前网页登录账户的数据。[DeepSeek 官方用量页](https://platform.deepseek.com/usage) · [DeepSeek 官方常见问题](https://static.deepseek.com/faq/index.html?lang=zh)
+
+用量窗口通过 Microsoft Edge WebView2 显示。登录状态保存在当前 Windows 用户的 `%LOCALAPPDATA%\BalanceWatcher\DeepSeekPlatform`，下次打开可继续使用。要切换账户，请从官方页面退出后再登录。如果窗口提示缺少运行时，点击 **获取 Microsoft Edge WebView2 运行时**，安装 Evergreen 运行时后点击 **重试**。[微软运行时下载](https://developer.microsoft.com/microsoft-edge/webview2/#download)
 
 ## 桌面使用
 
@@ -20,7 +26,7 @@ DeepSeek 密钥由 Windows DPAPI 按当前用户加密，随设置保存在 `%LO
 
 ## 从源码构建
 
-在项目目录用 PowerShell 运行 `./build.ps1`。脚本使用 Windows 自带的 .NET Framework 编译器，把界面、图标和千问组件编入同一个可执行文件。首次构建会下载官方 CLI v1.12.0 的 Windows x64 发布包，并核对固定的 SHA-256。[千问官方发布](https://github.com/QianWen-AI/qianwen-cli/releases/tag/v1.12.0)
+在项目目录用 PowerShell 运行 `./build.ps1`。脚本使用 Windows 自带的 .NET Framework 编译器，把界面、图标、千问组件和 WebView2 SDK 的托管库、x64 加载器及许可文本编入同一个可执行文件。首次构建会下载千问 CLI v1.12.0 和 WebView2 SDK，并核对各自的 SHA-256。[千问官方发布](https://github.com/QianWen-AI/qianwen-cli/releases/tag/v1.12.0) · [微软 WebView2 SDK](https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.3537.50)
 
 运行 `./build.ps1 -Check` 可验证余额解析、鉴权错误、刷新竞态、提醒、密钥保存和窗口布局。测试使用示例数据以及隔离的空千问配置。第三方许可证位于 `third_party/qianwen-cli-LICENSE.txt`。
 

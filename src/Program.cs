@@ -7,7 +7,7 @@ using System.Windows;
 [assembly: AssemblyTitle("余额看板")]
 [assembly: AssemblyDescription("龙掌柜的账本 · DeepSeek 与千问 AI 桌面余额挂件")]
 [assembly: AssemblyProduct("余额看板")]
-[assembly: AssemblyVersion("1.2.2.0")]
+[assembly: AssemblyVersion("1.3.0.0")]
 
 namespace BalanceWatcher
 {
@@ -16,6 +16,7 @@ namespace BalanceWatcher
         [STAThread]
         public static void Main()
         {
+            WebViewBundle.Register();
             bool first;
             using (var wake = new EventWaitHandle(false, EventResetMode.AutoReset, @"Local\LLMBalanceWatcher.Show.v1"))
             using (var single = new Mutex(true, @"Local\LLMBalanceWatcher.v1", out first))

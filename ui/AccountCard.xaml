@@ -10,7 +10,11 @@
         <StackPanel>
           <TextBlock x:Name="Provider" FontWeight="SemiBold" FontSize="13" Foreground="{StaticResource Ink}"/>
           <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,1,0,0"><Ellipse x:Name="Dot" Width="5" Height="5" Margin="0,0,4,0"/>
-            <TextBlock x:Name="Status" FontSize="10"/></StackPanel>
+            <TextBlock x:Name="Status" FontSize="10" VerticalAlignment="Center"/>
+            <Button x:Name="KeyUsage" Content="Key 用量 ›" Style="{StaticResource TextAction}" FontSize="10.5"
+                    Margin="5,0,0,0" Padding="1,0" Visibility="Collapsed" ToolTip="登录 DeepSeek 官方平台，按 API Key 查看用量"
+                    AutomationProperties.Name="查看各 DeepSeek API Key 的用量"/>
+          </StackPanel>
         </StackPanel>
       </StackPanel>
       <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8,0,0,0">

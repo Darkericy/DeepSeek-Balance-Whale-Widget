@@ -4,7 +4,9 @@
 
 <img src="ui/windows-preview.png" width="446" alt="Q 版白龙掌柜翻着小账簿、拨动算珠，旁边是 DeepSeek 与千问 AI 的示例余额"/>
 
-[下载 Windows x64 桌面版](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.2/DragonLedger-Windows-x64.exe) · [账户连接、登录自启与源码构建](WINDOWS.md) · [GPT 龙娘形象参考 · ZipZipPipe](https://www.bilibili.com/opus/1238613841710940181)
+[下载 Windows x64 桌面版 v1.2.2](https://github.com/Darkericy/DeepSeek-Balance-Whale-Widget/releases/download/windows-v1.2.2/DragonLedger-Windows-x64.exe) · [账户连接、登录自启与源码构建](WINDOWS.md) · [GPT 龙娘形象参考 · ZipZipPipe](https://www.bilibili.com/opus/1238613841710940181)
+
+Windows v1.3.0 源码版新增 **Key 用量**。从 DeepSeek 卡片打开，在账本内登录官方平台，即可按日期和 API Key 查看用量。[使用说明](WINDOWS.md#按-api-key-查看用量)
 
 ## DSH 小鲸鱼记账挂件（DeepSeek Balance Whale Widget）
 

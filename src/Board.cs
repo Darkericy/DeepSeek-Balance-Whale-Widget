@@ -36,7 +36,7 @@ namespace BalanceWatcher
             qClient = new QianwenClient(Path.Combine(SettingsStore.AppFolder, "components"));
             Deep.Reset(!string.IsNullOrEmpty(Store.Value.ProtectedKey));
             Qianwen.Reset(Store.Value.QianwenEnabled);
-            deepCard = new CardView(Deep, () => Settings(true));
+            deepCard = new CardView(Deep, () => Settings(true), () => new KeyUsageDialog().Show(Window));
             qCard = new CardView(Qianwen, () => Login(Window, Store.Value.QianwenDirect));
             var stack = Window.Part<StackPanel>("Accounts");
             stack.Children.Add(deepCard.Root);

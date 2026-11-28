@@ -34,6 +34,7 @@ namespace BalanceWatcher
         [STAThread]
         public static int Main()
         {
+            WebViewBundle.Register();
             try
             {
                 Directory.CreateDirectory(Folder);
@@ -41,6 +42,7 @@ namespace BalanceWatcher
                 CheckProviders().GetAwaiter().GetResult();
                 CheckAccounts().GetAwaiter().GetResult();
                 CheckPreferences();
+                CheckUsage();
                 CheckViews();
                 Console.WriteLine("Passed " + passed + " checks."); return 0;
             }
@@ -157,6 +159,29 @@ namespace BalanceWatcher
             Check(string.IsNullOrEmpty(new SettingsStore(dir).Value.ProtectedKey), "disconnect removes stored DeepSeek secret");
         }
 
+        private static void CheckUsage()
+        {
+            Check(KeyUsageDialog.UsagePage.AbsoluteUri == "https://platform.deepseek.com/usage" &&
+                KeyUsageDialog.IsUsagePage(new Uri("https://platform.deepseek.com/usage/?period=month")),
+                "usage opens the official report and recognizes filtered URLs");
+            Uri address;
+            Check(KeyUsageDialog.TryWebAddress("https://platform.deepseek.com/sign_in", out address) && !KeyUsageDialog.IsUsagePage(address) &&
+                !KeyUsageDialog.IsUsagePage(new Uri("https://example.org/usage")) &&
+                !KeyUsageDialog.TryWebAddress("file:///test", out address) &&
+                !KeyUsageDialog.TryWebAddress("https://example.org@platform.deepseek.com/usage", out address),
+                "login, report and non-web destinations are distinguished");
+            Check(System.Reflection.Assembly.Load("Microsoft.Web.WebView2.Core").GetType("Microsoft.Web.WebView2.Core.CoreWebView2Environment") != null &&
+                System.Reflection.Assembly.Load("Microsoft.Web.WebView2.Wpf").GetType("Microsoft.Web.WebView2.Wpf.WebView2") != null,
+                "single exe resolves both bundled WebView2 assemblies");
+            var components = Path.Combine(Folder, "browser-components");
+            var native = Path.Combine(WebViewBundle.InstallLoader(components), "WebView2Loader.dll");
+            var original = File.ReadAllBytes(native);
+            File.WriteAllBytes(native, new byte[] { 0 });
+            WebViewBundle.InstallLoader(components);
+            Check(original.Length > 2 && original[0] == 'M' && original[1] == 'Z' && File.ReadAllBytes(native).SequenceEqual(original),
+                "a damaged private WebView2 loader is restored from the executable");
+        }
+
         private static void CheckViews()
         {
             var app = new Application();
@@ -164,8 +189,16 @@ namespace BalanceWatcher
             var view = Ui.LoadWidget();
             var deep = new Account("DeepSeek", true);
             var q = new Account("千问 AI", false);
-            var card = new CardView(deep, delegate { });
+            bool usageOpened = false;
+            var card = new CardView(deep, delegate { }, () => usageOpened = true);
             var qcard = new CardView(q, delegate { });
+            var usageButton = card.Root.Part<Button>("KeyUsage");
+            usageButton.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            Check(usageOpened && usageButton.Visibility == Visibility.Visible && qcard.Root.Part<Button>("KeyUsage").Visibility == Visibility.Collapsed,
+                "per-key usage opens from DeepSeek even before a balance key is set");
+            var usageView = Ui.Load<Window>("KeyUsage");
+            Check(usageView.Part<Border>("BrowserHost") != null && usageView.Part<Button>("Reload") != null &&
+                usageView.Part<Button>("RuntimeDownload").Visibility == Visibility.Collapsed, "embedded usage window and recovery controls load");
             var stack = view.Part<StackPanel>("Accounts");
             stack.Children.Add(card.Root); stack.Children.Add(qcard.Root);
             var prefs = new Preferences();

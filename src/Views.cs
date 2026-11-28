@@ -108,7 +108,7 @@ namespace BalanceWatcher
     {
         public readonly Border Root = Ui.Load<Border>("AccountCard");
         private readonly Account account;
-        public CardView(Account account, Action connect)
+        public CardView(Account account, Action connect, Action showKeyUsage = null)
         {
             this.account = account;
             Root.Part<TextBlock>("Provider").Text = account.Name;
@@ -117,6 +117,12 @@ namespace BalanceWatcher
             mark.Stroke = Ui.Color(account.IsDeep ? "#326F8A" : "#71519A");
             Root.Part<Border>("Badge").Background = Ui.Color(account.IsDeep ? "#DFF1F5" : "#EEE6FB");
             Root.Part<Button>("Connect").Click += (s, e) => connect();
+            if (showKeyUsage != null)
+            {
+                var usage = Root.Part<Button>("KeyUsage");
+                usage.Visibility = Visibility.Visible;
+                usage.Click += (s, e) => showKeyUsage();
+            }
         }
 
         public void Render(Preferences prefs, bool details = false)
